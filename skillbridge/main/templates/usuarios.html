@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}SkillBridge - Usuarios{% endblock %}
+
+{% block body %}
+<div class="usuarios-body">
+    <h1 class="mx-2 pt-4 text-center">Lista de usuarios registrados</h1>
+    <table class="table table-striped-columns">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Email</th>
+                <th scope="col">Staff</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in usuarios %}
+            <tr>
+                <th scope="row">{{ usuario.id }}</th>
+                <td>{{ usuario.username }}</td>
+                <td>{{ usuario.first_name }}</td>
+                <td>{{ usuario.last_name }}</td>
+                <td>{{ usuario.email }}</td>
+                <td>{{ usuario.is_staff}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p class="mx-2">En la lista se muestra el nombre de usuario, los datos y si forma parte del staff.</p>
+    <p class="mx-2">Sólo los usuarios que forman parte del staff pueden ingresar a la zona de estadísticas del sitio.</p>
+    <br>
+</div>
+{% endblock %}
